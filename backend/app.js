@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
 const sauceRoutes = require('./routes/sauce');
+const userRoutes = require('./routes/user');
 
 
 
@@ -23,8 +25,7 @@ mongoose.connect('mongodb+srv://saucedb:sauce123@cluster0.y1aye.mongodb.net/myFi
   app.use(bodyParser.json());
 
   app.use('/api/sauces', sauceRoutes);
-  app.use('/api/sauces', saucePart);
-
+  app.use('/api/auth', userRoutes);
   
 
   module.exports = app;
